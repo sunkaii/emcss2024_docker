@@ -1,0 +1,600 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  kcf:
+    build: .
+    image: emcss:r6-cuda
+    ports:
+      - "5500:22"
+    working_dir: /home/kcf
+    cap_add:
+    - ALL
+    volumes:
+      - ./userfiles/kcf:/home/kcf
+      - ./startup:/startup
+      - ./shared/:/home/kcf/shared
+    environment:
+      - TZ=Asia/Taipei
+      - username=kcf
+      - userpwd=kcfpwd
+    env_file: docker.env
+    command: sh /startup/startup_root.sh
+    tty: true
+    restart: always
+    mem_limit: 512m
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]    
+  m1115517:
+    build: .
+    image: emcss:r6-cuda
+    ports:
+      - "5520:22"
+    working_dir: /home/m1115517
+    cap_add:
+    - SYS_NICE
+    volumes:
+      - ./userfiles/m1115517:/home/m1115517
+      - ./startup:/startup
+      - ./shared/:/home/m1115517/shared
+    environment:
+      - TZ=Asia/Taipei
+      - username=m1115517
+      - userpwd=m1115517pwdd
+    command: sh /startup/startup_root.sh
+    tty: true
+    restart: always
+    mem_limit: 512m
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]    
+    # privileged: true
+  # Students
+
+  a1095509:
+    image: emcss:r6-cuda
+    ports:
+    - "10720:22"
+    working_dir: /home/a1095509
+    cap_add:
+    - ALL
+    volumes:
+    - ./userfiles/a1095509:/home/a1095509
+    - ./startup:/startup
+    - ./shared/:/home/a1095509/shared
+    environment:
+    - TZ=Asia/Taipei
+    - username=a1095509
+    - userpwd=mzue65
+    command: sh /startup/startup.sh
+    tty: true
+    restart: always
+    mem_limit: 512m
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]    
+    
+  a1095510:
+    image: emcss:r6-cuda
+    ports:
+    - "10705:22"
+    working_dir: /home/a1095510
+    cap_add:
+    - ALL
+    volumes:
+    - ./userfiles/a1095510:/home/a1095510
+    - ./startup:/startup
+    - ./shared/:/home/a1095510/shared
+    environment:
+    - TZ=Asia/Taipei
+    - username=a1095510
+    - userpwd=u3fsy6
+    command: sh /startup/startup.sh
+    tty: true
+    restart: always
+    mem_limit: 512m
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]    
+    
+  a1095514:
+    image: emcss:r6-cuda
+    ports:
+    - "10707:22"
+    working_dir: /home/a1095514
+    cap_add:
+    - ALL
+    volumes:
+    - ./userfiles/a1095514:/home/a1095514
+    - ./startup:/startup
+    - ./shared/:/home/a1095514/shared
+    environment:
+    - TZ=Asia/Taipei
+    - username=a1095514
+    - userpwd=8jybta
+    command: sh /startup/startup.sh
+    tty: true
+    restart: always
+    mem_limit: 512m
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]    
+    
+  a1095518:
+    image: emcss:r6-cuda
+    ports:
+    - "10708:22"
+    working_dir: /home/a1095518
+    cap_add:
+    - ALL
+    volumes:
+    - ./userfiles/a1095518:/home/a1095518
+    - ./startup:/startup
+    - ./shared/:/home/a1095518/shared
+    environment:
+    - TZ=Asia/Taipei
+    - username=a1095518
+    - userpwd=d85h63
+    command: sh /startup/startup.sh
+    tty: true
+    restart: always
+    mem_limit: 512m
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]    
+    
+  a1095528:
+    image: emcss:r6-cuda
+    ports:
+    - "10711:22"
+    working_dir: /home/a1095528
+    cap_add:
+    - ALL
+    volumes:
+    - ./userfiles/a1095528:/home/a1095528
+    - ./startup:/startup
+    - ./shared/:/home/a1095528/shared
+    environment:
+    - TZ=Asia/Taipei
+    - username=a1095528
+    - userpwd=fjge6p
+    command: sh /startup/startup.sh
+    tty: true
+    restart: always
+    mem_limit: 512m
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]    
+    
+  a1095532:
+    image: emcss:r6-cuda
+    ports:
+    - "10713:22"
+    working_dir: /home/a1095532
+    cap_add:
+    - ALL
+    volumes:
+    - ./userfiles/a1095532:/home/a1095532
+    - ./startup:/startup
+    - ./shared/:/home/a1095532/shared
+    environment:
+    - TZ=Asia/Taipei
+    - username=a1095532
+    - userpwd=2b4zbv
+    command: sh /startup/startup.sh
+    tty: true
+    restart: always
+    mem_limit: 512m
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]    
+    
+  a1095549:
+    image: emcss:r6-cuda
+    ports:
+    - "10715:22"
+    working_dir: /home/a1095549
+    cap_add:
+    - ALL
+    volumes:
+    - ./userfiles/a1095549:/home/a1095549
+    - ./startup:/startup
+    - ./shared/:/home/a1095549/shared
+    environment:
+    - TZ=Asia/Taipei
+    - username=a1095549
+    - userpwd=98ypr6
+    command: sh /startup/startup.sh
+    tty: true
+    restart: always
+    mem_limit: 512m
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]    
+    
+  a1095551:
+    image: emcss:r6-cuda
+    ports:
+    - "10718:22"
+    working_dir: /home/a1095551
+    cap_add:
+    - ALL
+    volumes:
+    - ./userfiles/a1095551:/home/a1095551
+    - ./startup:/startup
+    - ./shared/:/home/a1095551/shared
+    environment:
+    - TZ=Asia/Taipei
+    - username=a1095551
+    - userpwd=mj2svr
+    command: sh /startup/startup.sh
+    tty: true
+    restart: always
+    mem_limit: 512m
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]    
+    
+  a1095560:
+    image: emcss:r6-cuda
+    ports:
+    - "10724:22"
+    working_dir: /home/a1095560
+    cap_add:
+    - ALL
+    volumes:
+    - ./userfiles/a1095560:/home/a1095560
+    - ./startup:/startup
+    - ./shared/:/home/a1095560/shared
+    environment:
+    - TZ=Asia/Taipei
+    - username=a1095560
+    - userpwd=wbvp43
+    command: sh /startup/startup.sh
+    tty: true
+    restart: always
+    mem_limit: 512m
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]    
+    
+  a1095564:
+    image: emcss:r6-cuda
+    ports:
+    - "10726:22"
+    working_dir: /home/a1095564
+    cap_add:
+    - ALL
+    volumes:
+    - ./userfiles/a1095564:/home/a1095564
+    - ./startup:/startup
+    - ./shared/:/home/a1095564/shared
+    environment:
+    - TZ=Asia/Taipei
+    - username=a1095564
+    - userpwd=xx9y3k
+    command: sh /startup/startup.sh
+    tty: true
+    restart: always
+    mem_limit: 512m
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]    
+    
+  a1105552:
+    image: emcss:r6-cuda
+    ports:
+    - "10727:22"
+    working_dir: /home/a1105552
+    cap_add:
+    - ALL
+    volumes:
+    - ./userfiles/a1105552:/home/a1105552
+    - ./startup:/startup
+    - ./shared/:/home/a1105552/shared
+    environment:
+    - TZ=Asia/Taipei
+    - username=a1105552
+    - userpwd=mhn4a2
+    command: sh /startup/startup.sh
+    tty: true
+    restart: always
+    mem_limit: 512m
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]    
+    
+  m1125506:
+    image: emcss:r6-cuda
+    ports:
+    - "10734:22"
+    working_dir: /home/m1125506
+    cap_add:
+    - ALL
+    volumes:
+    - ./userfiles/m1125506:/home/m1125506
+    - ./startup:/startup
+    - ./shared/:/home/m1125506/shared
+    environment:
+    - TZ=Asia/Taipei
+    - username=m1125506
+    - userpwd=2e34n4
+    command: sh /startup/startup.sh
+    tty: true
+    restart: always
+    mem_limit: 512m
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]    
+    
+  m1125517:
+    image: emcss:r6-cuda
+    ports:
+    - "10740:22"
+    working_dir: /home/m1125517
+    cap_add:
+    - ALL
+    volumes:
+    - ./userfiles/m1125517:/home/m1125517
+    - ./startup:/startup
+    - ./shared/:/home/m1125517/shared
+    environment:
+    - TZ=Asia/Taipei
+    - username=m1125517
+    - userpwd=h5gcnx
+    command: sh /startup/startup.sh
+    tty: true
+    restart: always
+    mem_limit: 512m
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]    
+    
+  l1115501:
+    image: emcss:r6-cuda
+    ports:
+    - "10741:22"
+    working_dir: /home/l1115501
+    cap_add:
+    - ALL
+    volumes:
+    - ./userfiles/l1115501:/home/l1115501
+    - ./startup:/startup
+    - ./shared/:/home/l1115501/shared
+    environment:
+    - TZ=Asia/Taipei
+    - username=l1115501
+    - userpwd=ncj6gp
+    command: sh /startup/startup.sh
+    tty: true
+    restart: always
+    mem_limit: 512m
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]    
+    
+  l1115504:
+    image: emcss:r6-cuda
+    ports:
+    - "10742:22"
+    working_dir: /home/l1115504
+    cap_add:
+    - ALL
+    volumes:
+    - ./userfiles/l1115504:/home/l1115504
+    - ./startup:/startup
+    - ./shared/:/home/l1115504/shared
+    environment:
+    - TZ=Asia/Taipei
+    - username=l1115504
+    - userpwd=q526qd
+    command: sh /startup/startup.sh
+    tty: true
+    restart: always
+    mem_limit: 512m
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]    
+    
+  l1115512:
+    image: emcss:r6-cuda
+    ports:
+    - "10743:22"
+    working_dir: /home/l1115512
+    cap_add:
+    - ALL
+    volumes:
+    - ./userfiles/l1115512:/home/l1115512
+    - ./startup:/startup
+    - ./shared/:/home/l1115512/shared
+    environment:
+    - TZ=Asia/Taipei
+    - username=l1115512
+    - userpwd=8sz5aq
+    command: sh /startup/startup.sh
+    tty: true
+    restart: always
+    mem_limit: 512m
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]    
+    
+  l1125506:
+    image: emcss:r6-cuda
+    ports:
+    - "11010:22"
+    working_dir: /home/l1125506
+    cap_add:
+    - ALL
+    volumes:
+    - ./userfiles/l1125506:/home/l1125506
+    - ./startup:/startup
+    - ./shared/:/home/l1125506/shared
+    environment:
+    - TZ=Asia/Taipei
+    - username=l1125506
+    - userpwd=f9fwph
+    command: sh /startup/startup.sh
+    tty: true
+    restart: always
+    mem_limit: 512m
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]    
+    
+  l1125511:
+    image: emcss:r6-cuda
+    ports:
+    - "11014:22"
+    working_dir: /home/l1125511
+    cap_add:
+    - ALL
+    volumes:
+    - ./userfiles/l1125511:/home/l1125511
+    - ./startup:/startup
+    - ./shared/:/home/l1125511/shared
+    environment:
+    - TZ=Asia/Taipei
+    - username=l1125511
+    - userpwd=p3wtk3
+    command: sh /startup/startup.sh
+    tty: true
+    restart: always
+    mem_limit: 512m
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]    
+    
+  l1125513:
+    image: emcss:r6-cuda
+    ports:
+    - "11024:22"
+    working_dir: /home/l1125513
+    cap_add:
+    - ALL
+    volumes:
+    - ./userfiles/l1125513:/home/l1125513
+    - ./startup:/startup
+    - ./shared/:/home/l1125513/shared
+    environment:
+    - TZ=Asia/Taipei
+    - username=l1125513
+    - userpwd=ra7wbh
+    command: sh /startup/startup.sh
+    tty: true
+    restart: always
+    mem_limit: 512m
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]    
+
+  a1075540:
+    image: emcss:r6-cuda
+    ports:
+    - "10720:22"
+    working_dir: /home/a1075540
+    cap_add:
+    - ALL
+    volumes:
+    - ./userfiles/a1075540:/home/a1075540
+    - ./startup:/startup
+    - ./shared/:/home/a1075540/shared
+    environment:
+    - TZ=Asia/Taipei
+    - username=a1075540
+    - userpwd=sdj0wz
+    command: sh /startup/startup.sh
+    tty: true
+    restart: always
+    mem_limit: 512m
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]    
+    
